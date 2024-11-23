@@ -1,0 +1,49 @@
+class AtikKutusu:
+    def __init__(self, isim):
+        self.isim = isim
+        self.atiklar = []
+
+    def atik_ekle(self, atik):
+        self.atiklar.append(atik)
+        print(f"{atik} {self.isim} kutusuna atıldı.")
+
+    def kutu_durumunu_goster(self):
+        print(f"{self.isim} Kutusu: {', '.join(self.atiklar) if self.atiklar else 'Boş'}")
+
+def atik_ayir():
+    cam = AtikKutusu("Cam")
+    plastik = AtikKutusu("Plastik")
+    kagit = AtikKutusu("Kağıt")
+    organik = AtikKutusu("Organik")
+
+    while True:
+        print("\nAtık Madde Seçin:")
+        print("1. Cam Şişe")
+        print("2. Plastik Şişe")
+        print("3. Kağıt")
+        print("4. Organik Atık")
+        print("5. Çıkış")
+
+        secim = input("Yapmak istediğiniz işlemi seçin (1-5): ")
+
+        if secim == "1":
+            cam.atik_ekle("Cam Şişe")
+        elif secim == "2":
+            plastik.atik_ekle("Plastik Şişe")
+        elif secim == "3":
+            kagit.atik_ekle("Kağıt")
+        elif secim == "4":
+            organik.atik_ekle("Organik Atık")
+        elif secim == "5":
+            print("\nAtık Kutuları Durumu:")
+            cam.kutu_durumunu_goster()
+            plastik.kutu_durumunu_goster()
+            kagit.kutu_durumunu_goster()
+            organik.kutu_durumunu_goster()
+            print("\nÇıkılıyor...")
+            break
+        else:
+            print("Geçersiz seçim, lütfen tekrar deneyin.")
+
+if __name__ == "__main__":
+    atik_ayir()
